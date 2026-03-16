@@ -47,6 +47,7 @@
                         'bounce-slow': 'bounce 3s infinite',
                         'pulse-gold': 'pulseGold 2s infinite',
                         'float': 'float 3s ease-in-out infinite',
+                        'spin-slow': 'spin 5s linear infinite',
                     },
                     keyframes: {
                         fadeIn: {
@@ -92,39 +93,30 @@
             box-shadow: 0 15px 35px rgba(217, 119, 6, 0.3);
         }
 
-        /* Music Player Sidebar Styling */
+        /* تثبيت أيقونة الموسيقى بشكل دائم */
         .music-sidebar {
-            @apply fixed top-1/2 right-0 -translate-y-1/2 z-50 transition-all duration-500 transform;
-            width: 80px;
-        }
-        
-        .music-sidebar:hover {
-            width: 200px;
+            @apply fixed top-1/2 right-0 -translate-y-1/2 z-50;
+            width: 90px;
         }
 
         .music-control-btn {
-            @apply bg-white/90 backdrop-blur-md border border-rose-200 shadow-xl rounded-l-full p-4 flex flex-col items-center gap-2 cursor-pointer transition-all duration-300;
-        }
-
-        .music-sidebar:hover .music-text {
-            @apply block opacity-100;
+            @apply bg-white/95 backdrop-blur-md border-y border-l border-rose-200 shadow-2xl rounded-l-3xl p-4 flex flex-col items-center gap-2 cursor-pointer transition-all duration-300 active:scale-90;
         }
 
         .music-text {
-            @apply hidden opacity-0 text-xs font-bold text-rose-600 transition-all duration-300;
+            @apply block text-[10px] font-bold text-rose-600 text-center leading-tight;
         }
     </style>
 </head>
 
 <body class="relative min-h-screen">
     
-    <!-- Music Player Controls -->
-    <div class="music-sidebar group">
+    <!-- Music Player Controls - Fixed & Permanent -->
+    <div class="music-sidebar">
         <div id="toggleMusic" class="music-control-btn">
-            <div id="musicIcon" class="text-2xl animate-spin-slow">🎵</div>
-            <span id="musicStatusText" class="music-text">شغلي الإهداء</span>
+            <div id="musicIcon" class="text-3xl">🎵</div>
+            <span id="musicStatusText" class="music-text">شغلي<br>الإهداء</span>
         </div>
-        <!-- Audio Element (Add your audio file path here) -->
         <audio id="bgMusic" loop>
             <source src="https://files.catbox.moe/8w8lot.mp3" type="audio/mpeg">
         </audio>
@@ -277,7 +269,7 @@
         };
 
         // --- 3. Chart Setup ---
-        window.onload = () => {
+        window.addEventListener('load', () => {
             const cCtx = document.getElementById('loveChart').getContext('2d');
             new Chart(cCtx, {
                 type: 'doughnut',
@@ -294,7 +286,7 @@
                     plugins: { legend: { position: 'bottom', labels: { font: { family: 'Tajawal', size: 11 } } } }
                 }
             });
-        };
+        });
 
         // --- 4. Music Player Logic ---
         const audio = document.getElementById('bgMusic');
@@ -306,12 +298,12 @@
         toggleBtn.addEventListener('click', () => {
             if (isPlaying) {
                 audio.pause();
-                musicIcon.classList.remove('animate-spin');
-                statusText.textContent = "شغلي الإهداء";
+                musicIcon.classList.remove('animate-spin-slow');
+                statusText.innerHTML = "شغلي<br>الإهداء";
             } else {
                 audio.play().catch(e => console.log("Audio needs interaction first"));
-                musicIcon.classList.add('animate-spin');
-                statusText.textContent = "طفي الإهداء";
+                musicIcon.classList.add('animate-spin-slow');
+                statusText.innerHTML = "طفي<br>الإهداء";
             }
             isPlaying = !isPlaying;
         });
