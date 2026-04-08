@@ -99,7 +99,8 @@
         .product-options-container select:focus { border-color: var(--primary); }
 
         .actions-group { display: flex; gap: 15px; }
-        .btn-back { background-color: var(--surface); color: var(--text-dark); border: 2px solid var(--border); padding: 12px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; cursor: pointer; text-align: center;}
+        .btn-back { background-color: var(--surface); color: var(--text-dark); border: 2px solid var(--border); padding: 12px 20px; border-radius: 8px; font-weight: bold; text-decoration: none; cursor: pointer; text-align: center; border: 1px solid var(--border);}
+        .btn-back:hover { background-color: var(--bg-color); }
 
         /* نافذة الخيارات المنبثقة (Modal) للرئيسية */
         .options-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); background: var(--surface); z-index: 1001; width: 90%; max-width: 400px; border-radius: 15px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); opacity: 0; visibility: hidden; transition: 0.3s; border: 1px solid var(--border); }
@@ -120,17 +121,21 @@
         .terms-list { list-style: none; margin-top: 30px; text-align: right; }
         .terms-list li { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed var(--border); }
         .terms-list h3 { color: var(--primary); margin-bottom: 10px; font-size: 1.2rem; }
+        .btn-inner-back { display: inline-flex; align-items: center; gap: 10px; background: var(--bg-color); border: 1px solid var(--border); padding: 10px 20px; border-radius: 10px; font-weight: bold; color: var(--primary); cursor: pointer; transition: 0.3s; margin-bottom: 30px;}
+        .btn-inner-back:hover { background: var(--border); }
         
         /* الفوتر والسلة */
         .footer { background-color: var(--footer-bg); color: #ffffff; padding: 40px 5% 20px; margin-top: auto; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; max-width: 1200px; margin: 0 auto;}
         .footer-logo-wrap { width: 100px; height: 100px; background: #fff; border-radius: 15px; padding: 5px; margin-bottom: 15px; display: inline-block;}
         .footer-logo-wrap img { width: 100%; height: 100%; object-fit: contain; }
         .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
         .footer-links a { color: #cccccc; text-decoration: none; font-size: 0.9rem; cursor: pointer; transition: 0.3s;}
         .footer-links a:hover { color: var(--accent); }
         
-        .trust-badge { display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: #fff; transition: 0.3s;}
+        .trust-badge { display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: #fff; transition: 0.3s; max-width: 250px; margin: 0 auto;}
         .trust-badge:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); }
+        .trust-badge img { max-width: 100px; margin-bottom: 10px; border-radius: 8px; background: #fff; padding: 5px;}
 
         .cart-drawer { position: fixed; top: 0; left: -400px; width: 380px; height: 100%; background: var(--surface); z-index: 1000; box-shadow: 5px 0 25px rgba(0,0,0,0.1); transition: 0.4s; display: flex; flex-direction: column; }
         .cart-drawer.active { left: 0; }
@@ -207,6 +212,7 @@
     </div>
 
     <div id="product-section" class="page-section">
+        <button class="btn-inner-back" onclick="navigateTo('home')"><i class="fas fa-arrow-right"></i> العودة للمتجر</button>
         <div class="product-details-container" id="product-container">
             <div class="product-image-side">
                 <img id="det-img" src="">
@@ -224,7 +230,6 @@
 
                 <div class="actions-group">
                     <button class="btn-add" id="det-add-btn" style="flex: 1; padding: 15px; font-size: 1.1rem;"><i class="fas fa-cart-plus"></i> أضف للسلة</button>
-                    <button class="btn-back" onclick="navigateTo('home')">العودة للمتجر</button>
                 </div>
             </div>
         </div>
@@ -232,6 +237,7 @@
 
     <div id="about-section" class="page-section">
         <div class="info-card">
+            <button class="btn-inner-back" onclick="navigateTo('home')"><i class="fas fa-arrow-right"></i> العودة للرئيسية</button>
             <i class="fas fa-store info-icon"></i>
             <h1 class="info-title">من نحن؟</h1>
             <p class="info-text">مرحباً بك في <strong>متجر شادن</strong>، الوجهة الأولى والأرقى لاقتناء أروع التصاميم الرقمية. بدأنا رحلتنا بشغف كبير لنكون جزءاً من لحظاتكم السعيدة.</p>
@@ -250,6 +256,7 @@
 
     <div id="privacy-section" class="page-section">
         <div class="info-card">
+            <button class="btn-inner-back" onclick="navigateTo('home')"><i class="fas fa-arrow-right"></i> العودة للرئيسية</button>
             <i class="fas fa-user-shield info-icon"></i>
             <h1 class="info-title">سياسة الخصوصية</h1>
             <p class="info-text">في <strong>متجر شادن</strong>، ندرك تماماً أهمية الخصوصية والأمان لعملائنا. نحن نلتزم بحماية جميع بياناتك الشخصية.</p>
@@ -268,6 +275,7 @@
 
     <div id="terms-section" class="page-section">
         <div class="info-card">
+            <button class="btn-inner-back" onclick="navigateTo('home')"><i class="fas fa-arrow-right"></i> العودة للرئيسية</button>
             <i class="fas fa-file-contract info-icon"></i>
             <h1 class="info-title">الشروط والأنظمة</h1>
             <ul class="terms-list">
@@ -280,6 +288,7 @@
 
     <div id="return-section" class="page-section">
         <div class="info-card">
+            <button class="btn-inner-back" onclick="navigateTo('home')"><i class="fas fa-arrow-right"></i> العودة للرئيسية</button>
             <i class="fas fa-undo-alt info-icon"></i>
             <h1 class="info-title">سياسة الاسترجاع</h1>
             <div class="policy-alert">
@@ -287,47 +296,48 @@
             </div>
             <div class="vision-mission">
                 <div class="box"><i class="fas fa-times-circle" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i><h3>الإلغاء قبل التنفيذ</h3><p>يُسمح باسترجاع المبلغ بالكامل في حال طلب العميل الإلغاء قبل بدء العمل.</p></div>
-                <div class="box"><i class="fas fa-hand-holding-usd" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i><h3>آلية الاسترداد</h3><p>يتم تحويل المبلغ لحسابكم البنكي خلال يوم إلى 3 أيام عمل في حال الموافقة.</p></div>
+                <div class="box"><i class="fas fa-hand-holding-usd" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i><h3>آلية الاسترداد</h3><p>يتم تحويل المبلغ لحسابكم البنكي خلال 3 إلى 7 أيام عمل في حال الموافقة.</p></div>
             </div>
         </div>
     </div>
 
     <footer class="footer">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; max-width: 1200px; margin: 0 auto;">
-            
+        <div class="footer-content">
             <div>
                 <div class="footer-logo-wrap" onclick="navigateTo('home')" style="cursor: pointer;"><img src="82433.png" alt="شادن"></div>
                 <p style="opacity: 0.8; font-size: 0.9rem;">جمال وأناقة للمناسبات والتصاميم الرقمية</p>
                 <div style="margin-top: 20px; font-size: 1.2rem; display: flex; justify-content: center; gap: 15px;">
                     <a href="#" style="color: #fff;"><i class="fab fa-instagram"></i></a>
-                    <a href="#" style="color: #fff;"><i class="fab fa-snapchat"></i></a>
+                    <a href="https://www.snapchat.com/add/iclloudz?share_id=fQJct13eRxY&locale=ar-SA" target="_blank" style="color: #fff;"><i class="fab fa-snapchat"></i></a>
                     <a href="#" style="color: #fff;"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
 
             <div>
                 <h4 style="color: var(--accent); margin-bottom: 20px;">روابط سريعة</h4>
-                <ul class="footer-links">
+                <ul class="footer-links" style="display: inline-block; text-align: right;">
                     <li><a onclick="navigateTo('about')">من نحن</a></li>
                     <li><a onclick="navigateTo('privacy')">الخصوصية</a></li>
                     <li><a onclick="navigateTo('terms')">الشروط</a></li>
                     <li><a onclick="navigateTo('return')">الاسترجاع</a></li>
                 </ul>
-                <div style="margin-top: 25px;">
-                    <h4 style="color: var(--accent); margin-bottom: 10px;">تواصل معنا</h4>
-                    <p style="margin-bottom: 5px; font-size: 0.9rem;"><i class="fas fa-phone" style="margin-left: 5px;"></i> +966548774184</p>
-                    <p style="font-size: 0.9rem;"><i class="fas fa-envelope" style="margin-left: 5px;"></i> info@shaden.com</p>
+            </div>
+
+            <div>
+                <h4 style="color: var(--accent); margin-bottom: 20px;">تواصل معنا</h4>
+                <div style="text-align: right; display: inline-block;">
+                    <p style="margin-bottom: 15px; font-size: 0.9rem;"><i class="fas fa-phone" style="margin-left: 5px; color: var(--accent);"></i> +966 54 877 4184</p>
+                    <p style="font-size: 0.9rem;"><i class="fas fa-envelope" style="margin-left: 5px; color: var(--accent);"></i> info@shaden.com</p>
                 </div>
             </div>
 
             <div>
                 <h4 style="color: var(--accent); margin-bottom: 20px;">الاعتماد والتوثيق</h4>
-                <a href="رابط_منصة_الأعمال_هنا" class="trust-badge" target="_blank" title="اضغط للتحقق من التوثيق">
-                    <i class="fas fa-certificate" style="font-size: 3rem; color: #25d366; margin-bottom: 10px;"></i>
-                    <span style="font-family: 'Tajawal', sans-serif;">موثق لدى منصة الأعمال</span>
+                <a href="رابط_منصة_الأعمال_هنا" class="trust-badge" target="_blank" title="موثق لدى منصة الأعمال">
+                    <img src="mawthoq.png" alt="موثق لدى منصة الأعمال">
+                    <span style="font-family: 'Tajawal', sans-serif; font-size: 0.9rem;">موثق لدى منصة الأعمال</span>
                 </a>
             </div>
-
         </div>
         <p style="text-align: center; margin-top: 40px; font-size: 0.8rem; opacity: 0.5;">جميع الحقوق محفوظة © 2026 - متجر شادن</p>
     </footer>
@@ -350,7 +360,8 @@
     <div id="toast-container"></div>
 
     <script>
-        // قاعدة البيانات مع الأسعار المخفضة (الأسعار القديمة)
+        // تمت استعادة روابط الصور العالية الجودة للحفاظ على جمالية الموقع
+        // يمكنك تغيير الصور متى شئت بروابطك الخاصة
         const products = [
             { 
                 id: 5, 
@@ -358,7 +369,7 @@
                 category: "متاجر", 
                 price: 250,
                 oldPrice: 350, 
-                image: "82459.jpg", 
+                image: "Market.jpg", 
                 desc: "خدمة متكاملة لإنشاء وتصميم متجرك الإلكتروني بأحدث التقنيات لتبدأ تجارتك فوراً.",
                 hasOptions: true,
                 options: [
