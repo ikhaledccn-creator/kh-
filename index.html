@@ -44,14 +44,11 @@
         body { background-color: var(--bg-color); color: var(--text-dark); overflow-x: hidden; transition: background-color 0.3s, color 0.3s; display: flex; flex-direction: column; min-height: 100vh;}
         button { cursor: pointer; transition: all 0.3s ease; font-family: 'Tajawal', sans-serif; }
         
-        /* الهيدر والشعار النظيف */
+        /* الهيدر والشعار (الإطار الدائري الذهبي) */
         .navbar { background-color: var(--surface); padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; transition: background-color 0.3s; }
         
-        .logo { cursor: pointer; display: flex; align-items: center; }
-        .logo img { height: 60px; object-fit: contain; transition: 0.3s; }
-        /* خاصية ذكية لإخفاء خلفية الشعار البيضاء في الوضع الفاتح */
-        .logo img { mix-blend-mode: multiply; }
-        [data-theme="dark"] .logo img { mix-blend-mode: normal; background-color: rgba(253, 251, 247, 0.95); padding: 5px 15px; border-radius: 8px; }
+        .logo-container { width: 80px; height: 80px; background: #ffffff; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 2px solid var(--accent); overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer; }
+        .logo-container img { width: 90%; height: 90%; object-fit: contain; }
         
         .search-container { flex: 1; max-width: 350px; margin: 0 20px; position: relative; }
         .search-input { width: 100%; padding: 10px 15px 10px 40px; border-radius: 25px; border: 1px solid var(--border); background-color: var(--bg-color); color: var(--text-dark); outline: none; }
@@ -168,7 +165,7 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo" onclick="navigateTo('home')">
+        <div class="logo-container" onclick="navigateTo('home')">
             <img src="82433.png" alt="شادن">
         </div>
         <div class="search-container">
